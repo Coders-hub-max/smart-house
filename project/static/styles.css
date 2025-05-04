@@ -1,0 +1,99 @@
+/* App-like background and layout */
+body {
+    background-color: #e6f2ef;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Main app container */
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* App header text */
+h2 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: #2b2b2b;
+    margin-bottom: 30px;
+}
+
+/* User greeting & instructions */
+h3, p {
+    text-align: center;
+    font-size: 16px;
+    color: #444;
+    margin: 10px 0;
+}
+
+/* Flex container for logout and buttons */
+.right-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* Logout and nav buttons */
+.btn-small {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.btn-small:hover {
+    background-color: #0056b3;
+}
+
+/* Standard button styles */
+.btn {
+    display: inline-block;
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    text-align: center;
+    margin: 10px 0;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+/* Primary style for dashboard mode buttons */
+.btn-primary {
+    background-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Button row to align dashboard buttons */
+.button-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Responsive forms in button row */
+.button-row form,
+.button-row a {
+    flex: 1;
+}

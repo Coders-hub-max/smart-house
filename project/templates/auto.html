@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Control</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            padding-top: 80px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Auto Control</h1>
+        {% for device in devices %}
+            <div>
+                <p>{{ device.device_name }} - Status: {{ device.status }}</p>
+            </div>
+        {% endfor %}
+
+        <h2>Logs</h2>
+
+        <!-- Navigation Bar Moved Below Logs -->
+        <div class="d-flex justify-content-end align-items-center mt-3">
+            {% if 'user_id' in session %}
+                <a href="{{ url_for('dashboard') }}" class="btn btn-lg btn-primary mr-2" style="color: white !important;">Home</a>
+                <a href="{{ url_for('show_logs') }}" class="btn btn-lg btn-danger mr-2" style="color: white !important;">Show Logs</a>
+                <a href="{{ url_for('logout') }}" class="btn btn-lg btn-secondary" style="color: white !important;">Logout</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

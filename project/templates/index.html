@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Home - Welcome</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container welcome">
+        <h1 class="mb-4">Welcome to Smart Home Control</h1>
+        <a href="{{ url_for('login') }}" class="btn btn-primary">Login</a>
+    </div>
+</body>
+</html>

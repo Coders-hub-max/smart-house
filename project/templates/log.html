@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h2 class="text-center">Logs</h2>
+
+<!-- Home, Clear Logs, and Logout Buttons (Top-right, horizontally placed) -->
+<div class="d-flex justify-content-end align-items-center" style="position: absolute; top: 20px; right: 20px;">
+    <a href="{{ url_for('dashboard') }}" class="btn btn-sm text-white mr-2" style="background-color: #007bff;">Home</a>
+    <form method="POST" action="{{ url_for('clear_logs') }}" class="d-inline mr-2">
+        <button type="submit" class="btn btn-sm text-white" style="background-color: #dc3545;">Clear All Logs</button>
+    </form>
+    <a href="{{ url_for('logout') }}" class="btn btn-sm text-white" style="background-color: #6c757d;">Logout</a>
+</div>
+
+
+<!-- Logs Table -->
+<div class="container mt-5">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Action</th>
+                <th>Device Name</th>
+                <th>Status Before</th>
+                <th>Status After</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for log in logs %}
+                <tr>
+                    <td>{{ log.action }}</td>
+                    <td>{{ log.device_name }}</td>
+                    <td>{{ log.status_before }}</td>
+                    <td>{{ log.status_after }}</td>
+                    <td>{{ log.timestamp }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

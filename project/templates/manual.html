@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h2 class="text-center">Manual Control</h2>
+
+<!-- Devices Table -->
+<div class="container mt-5">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Device Name</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for device in devices %}
+                <tr>
+                    <td>{{ device.device_name }}</td>
+                    <td>{{ device.status }}</td>
+                    <td>
+                        <!-- Radio buttons for controlling status (ON first, OFF second) -->
+                        <form method="POST" action="{{ url_for('manual') }}">
+                            <input type="hidden" name="device_id" value="{{ device.id }}">
+                            <label>
+                                <input type="radio" name="device_{{ device.id }}" value="ON" 
+                                    {% if device.status == 'ON' %} checked {% endif %} onchange="this.form.submit()"> ON
+                            </label>
+                            <label>
+                                <input type="radio" name="device_{{ device.id }}" value="OFF" 
+                                    {% if device.status == 'OFF' %} checked {% endif %} onchange="this.form.submit()"> OFF
+                            </label>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<!-- Centered Buttons -->
+<div class="text-center">
+    <a href="{{ url_for('show_logs') }}" class="btn btn-info btn-lg">Show Logs</a>
+    <a href="{{ url_for('home') }}" class="btn btn-info btn-lg">Home</a>
+</div>
+
+{% endblock %}
